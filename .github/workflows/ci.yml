@@ -36,6 +36,6 @@ jobs:
       # Compile cobol
       - name: Run a one-line script
         run: |
-          cobc helloworld.cbl
+          cobc -free -x -o helloworld helloworld.cob
           ls -l
           ./helloworld
