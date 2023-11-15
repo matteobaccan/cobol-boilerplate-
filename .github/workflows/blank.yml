@@ -1,0 +1,43 @@
+# Compile COBOL program
+
+name: CI - Cobol
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Setup COBOL
+      # You may pin to the exact commit or the version.
+      # uses: fabasoad/setup-cobol-action@d4451c8cda92859f5997be09529e5207af92b88e
+        uses: fabasoad/setup-cobol-action@v1.4.3
+          #with:
+            # GnuCOBOL version.
+            #version: # optional, default is 3.1.2
+
+      # Compile cobol
+      - name: Run a one-line script
+        run: cobc helloworld.cbl
+
+      # Run helloworld
+      - name: Run helloworld
+        run: |
+          ./helloworld
