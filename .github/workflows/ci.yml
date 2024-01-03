@@ -28,7 +28,7 @@ jobs:
       - name: Setup COBOL
       # You may pin to the exact commit or the version.
       # uses: fabasoad/setup-cobol-action@d4451c8cda92859f5997be09529e5207af92b88e
-        uses: fabasoad/setup-cobol-action@v1.4.3
+        uses: fabasoad/setup-cobol-action@v1.4.4
           #with:
             # GnuCOBOL version.
             #version: # optional, default is 3.1.2
